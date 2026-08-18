@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import { useEffect, useState } from "react";
 type CardProps = {
@@ -13,7 +14,7 @@ export default function Card({ pokemon }: { pokemon: CardProps }) {
             try {
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.number}`);
                 const data = await response.json();
-                const pokemonTypes = data.types.map((typeInfo: any) => typeInfo.type.name);
+                const pokemonTypes = data.types.map((typeInfo: { type: { name: string } }) => typeInfo.type.name);
                 setTypes(pokemonTypes);
             } catch (error) {
                 console.error("Error fetching Pokemon types:", error);
