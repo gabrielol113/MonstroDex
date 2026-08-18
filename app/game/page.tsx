@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
-
+import Link from "next/link";
 
 export default async function GamePage() {
     const session = await auth();
@@ -44,9 +44,9 @@ export default async function GamePage() {
             <div className="flex flex-col w-full items-center justify-center">
                 <h1 className="text-xl font-bold mt-4">Ações</h1>
                 <div className="flex flex-col items-center justify-center mt-4 w-1/2">
-                    <button className="bg-blue-500 text-white w-2/4 py-2 px-4 hover:cursor-pointer rounded-md mt-4 hover:bg-blue-600 transition-colors" type="button">
+                    <Link className="flex bg-blue-500 justify-center items-center text-white w-2/4 py-2 px-4 hover:cursor-pointer rounded-md mt-4 hover:bg-blue-600 transition-colors" href="/pokedex">
                         Pokedex
-                    </button>                    
+                    </Link>
                     <button className="bg-blue-500 text-white w-2/4 py-2 px-4 hover:cursor-pointer rounded-md mt-4 hover:bg-blue-600 transition-colors" type="button">
                         Equipe
                     </button>
